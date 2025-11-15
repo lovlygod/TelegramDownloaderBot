@@ -1,42 +1,50 @@
-# TikTok Downloader Bot
+<div align="center">
+  <h1 style="margin-top: 24px;">💎 Telegram Downloader Bot by @lovlydev</h1>
 
-Telegram-бот для скачивания контента с различных платформ: TikTok, Instagram, YouTube, Twitter.
+  <p style="font-size: 18px; margin-bottom: 24px;">
+    <b>Telegram bot for downloading content from various platforms: TikTok, Instagram, YouTube, Twitter</b>
+  </p>
 
-## Функциональность
+[Report Bug](https://github.com/lovlygod/TelegramDownloaderBot/issues) · [Request Feature](https://github.com/lovlygod/TelegramDownloaderBot/issues)
 
-- Скачивание видео и фото с TikTok
-- Скачивание медиа с Instagram (фото и видео)
-- Скачивание видео и аудио с YouTube (без API)
-- Скачивание медиа с Twitter (фото, видео и GIF)
+</div>
 
-## Установка
+---
 
-1. Установите Python 3.8 или выше
-2. Клонируйте репозиторий
-3. Установите зависимости:
+## ✨ Features
+
+- 🎥 **TikTok Content Download** - Download videos and photos from TikTok
+- 📸 **Instagram Media Download** - Download photos and videos from Instagram 
+- 🎵 **YouTube Video/Audio Download** - Download videos and audio from YouTube (without API)
+- 🐦 **Twitter Media Download** - Download photos, videos and GIFs from Twitter
+
+## 🚀 Quick Start
+
+### 1. Installation
 
 ```bash
+git clone https://github.com/lovlygod/TelegramDownloaderBot.git
+cd TelegramDownloaderBot
 pip install -r requirements.txt
 ```
 
-## Настройка
+### 2. Configuration
 
-1. Создайте бота в [@BotFather](https://t.me/BotFather) и получите токен
-2. Заполните файл `.env` своими данными:
+Create `.env` file with your credentials:
 
 ```env
 # Telegram Bot Token
-BOT_TOKEN=ваш_токен_бота
+BOT_TOKEN=your_bot_token
 
 # API Configuration for Instagram
-API_ID=ваш_api_id
-API_HASH=ваш_api_hash
+API_ID=your_api_id
+API_HASH=your_api_hash
 
 # Instagram Username
-INSTAGRAM_USERNAME=ваш_инстаграм_юзернейм
+INSTAGRAM_USERNAME=your_instagram_username
 
 # Owner ID
-OWNER_ID=ваш_айди
+OWNER_ID=your_id
 
 # Session File ID for Instagram
 INSTA_SESSIONFILE_ID=
@@ -51,79 +59,76 @@ TWITTER_ACCESS_TOKEN=
 TWITTER_ACCESS_TOKEN_SECRET=
 ```
 
-### Где получить переменные:
+### 3. Getting Required Data
 
-- `BOT_TOKEN` — получить у [@BotFather](https://t.me/BotFather) в Telegram (бесплатно)
-- `API_ID`, `API_HASH` — получить на [my.telegram.org](https://my.telegram.org) (бесплатно, требуется аккаунт Telegram)
-- `INSTAGRAM_USERNAME` — ваш логин в Instagram (бесплатно)
-- `OWNER_ID` — ваш ID в Telegram (можно получить у [@userinfobot](https://t.me/userinfobot)) (бесплатно)
+#### 🤖 Telegram Bot Token
+1. Message [@BotFather](https://t.me/BotFather) in Telegram
+2. Create a new bot using `/newbot` command
+3. Copy the token and paste to `BOT_TOKEN` in your `.env` file
 
-**Опциональные переменные:**
+#### 🔐 Telegram API Credentials
+1. Visit [my.telegram.org](https://my.telegram.org)
+2. Login with your Telegram account
+3. Create a new application
+4. Copy `API_ID` and `API_HASH` → paste to your `.env` file
 
-- `INSTA_SESSIONFILE_ID` — ID файла сессии Instagram (бесплатно, создается автоматически при первом использовании)
-- `TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_TOKEN_SECRET` — получить на [Twitter Developer Portal](https://developer.twitter.com/) (требуется аккаунт разработчика)
+#### 👤 Instagram Username
+1. Your Instagram login username
+2. Paste to `INSTAGRAM_USERNAME` in your `.env` file
 
-**Важно:** Для работы с Twitter необходимо получить API-ключи на Twitter Developer Portal и заполнить соответствующие переменные. Без этих ключей функция скачивания Twitter-контента работать не будет.
+#### 🆔 Telegram User ID
+1. Message [@userinfobot](https://t.me/userinfobot) in Telegram
+2. Copy your ID → paste to `OWNER_ID` in your `.env` file
 
-**Примечание:** Большинство из этих сервисов бесплатны, но могут иметь ограничения по количеству запросов в день.
+**Optional credentials:**
+- Twitter API keys: Get from [Twitter Developer Portal](https://developer.twitter.com/)
 
-### Назначение Instagram переменных:
+### 4. Usage
 
-- `INSTAGRAM_USERNAME` — используется для аутентификации в Instagram через библиотеку Instaloader
-- `INSTA_SESSIONFILE_ID` — ID файла сессии Instagram, который позволяет сохранять сессию и не проходить аутентификацию каждый раз
-- `INSTAGRAM_BOT_TOKEN` — токен для дополнительного Instagram бота (не используется в текущей реализации, но предусмотрен в коде)
+Run the bot using one of these methods:
 
-**Важно:** Функция скачивания Instagram-контента теперь полностью реализована. Для полноценной работы с Instagram рекомендуется заполнить переменные `INSTAGRAM_USERNAME` и при необходимости использовать сессию Instagram.
-
-При запуске бота с вашей сессией Instagram, другие пользователи смогут скачивать контент с Instagram через вашего бота. Важно понимать, что все запросы к Instagram будут выполняться от вашего имени, и приватные аккаунты будут доступны только если вы подписаны на них.
-
-## Запуск
-
-### В командной строке Windows:
+#### Windows Command Line:
 ```cmd
 start.bat
 ```
 
-### В PowerShell:
+#### PowerShell:
 ```powershell
 .\start.ps1
 ```
 
-### Вручную через Python (если предыдущие способы не работают):
-1. Убедитесь, что у вас установлены все зависимости:
-```bash
-pip install -r requirements.txt
-```
-
-2. Запустите бота:
+#### Manual Python execution:
 ```bash
 python bot.py
 ```
 
-**Важно:** Перед запуском убедитесь, что вы заполнили все необходимые переменные в файле `.env`, особенно `BOT_TOKEN`, который обязателен для работы бота.
+## Commands
 
-## Использование
+After starting the bot, you can use these commands:
 
-После запуска бота вы можете использовать следующие команды:
+| Command | Description |
+|---------|-------------|
+| `/start` | Start working with the bot |
+| `/help` | Get help information |
+| `/tiktok` | Download from TikTok |
+| `/instagram` | Download from Instagram |
+| `/youtube` | Download from YouTube |
+| `/twitter` | Download from Twitter |
 
-- `/start` - начать работу с ботом
-- `/help` - получить справку
-- `/tiktok` - скачать с TikTok
-- `/instagram` - скачать с Instagram
-- `/youtube` - скачать с YouTube
-- `/twitter` - скачать с Twitter
+Just send the bot a link to a video/post, and it will automatically detect the platform and download the content.
 
-Просто отправьте боту ссылку на видео/пост, и он автоматически определит платформу и скачает контент.
+## Requirements
 
-**Особенности бота:**
-- Автоматическая проверка размера файлов перед отправкой в Telegram (ограничение 20 МБ)
-- Улучшенная обработка перенаправлений TikTok-ссылок
-- Поддержка различных форматов TikTok-ссылок
+- Python >= 3.8
+- Libraries: python-telegram-bot, instaloader, pytube, etc. (see requirements.txt)
 
-## Лицензия
+## License
+[MIT](LICENSE)
 
-Этот проект распространяется под лицензией MIT. Подробности смотрите в файле [LICENSE](./LICENSE).
+<div align="center">
 
-**Состояние бота:** В данный момент бот успешно запущен и работает. Он может скачивать контент с TikTok, Instagram, YouTube и Twitter (при наличии соответствующих API-ключей).
+### Made with ❤️ by [@lovly](https://t.me/lovlyswag)
 
-Также доступна альтернативная лицензия GNU General Public License v3.0 (GPL-3.0). Подробности смотрите в файле [GPL-LICENSE](./GPL-LICENSE).
+**Star ⭐ this repo if you found it useful!**
+
+</div>
